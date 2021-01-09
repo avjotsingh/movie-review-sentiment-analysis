@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>IMDB Sentiment Predict</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container">
+        <form action="{{ url_for('imdb') }}" method="post">
+            <div class="form-group">
+                <h4>Enter review whose sentiment is to be predicted</h4>
+                <textarea class="form-control" rows="4" placeholder="Review goes here" name="review"></textarea>
+            </div>
+            
+            <p><input class="btn btn-primary" type="submit" value="submit" /></p>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

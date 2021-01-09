@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>IMDB Sentiment Classification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+  <body>
+      <div class="container">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><b>IMDB Review Sentiment Prediction</b></a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('imdb') }}">Predict</a></li>
+              <li><a href="{{ url_for('data') }}">Submissions</a></li>
+            </ul>
+          </div>
+        </nav>
+          
+        <div class="container" style="background-image: url('/static/background.jpg'); background-size: 100% 100%;">
+          <style>
+            div.transbox {
+              margin: 30px;
+              background-color: #ffffff;
+              border: 1px solid black;
+              opacity: 0.8;
+            }
+          </style>
+          <div class="transbox">
+            <h3 class="text-center">IMDB Review Sentiment Prediction</h3>
+            <p class="text-center">
+              <strong>
+                A flask app that lets users submit a movie review and predicts the sentiment of the submitted review as either positive or negative.
+                The navigation bar above lets users navigate between different parts of the app.
+              </strong>
+            </p>
+            <p class="text-center">
+              <strong>
+                The app uses a random forest classifier trained on IMDB movie review dataset to make predictions on the user submitted reviews. For training purpose,
+                the reviews from the dataset have been cleaned by removing HTML tags, special characters, punctutation, and stopwords. All words are converted to lowercase before training the classifier. Additionally,
+                a bag-of-words model is used to convert textual data to a sparse feature matrix for training the classifier. When a user submits a review, the same kind of preprocessing is applied before making a prediction.
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

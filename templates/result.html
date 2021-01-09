@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>IMDB Sentiment Prediction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+        }
+    </style>
+    {% extends "home.html" %}
+    {% block content %}
+    
+    <div class="jumbotron">
+        <p>Prediction is as follows: {{result}}</p>
+    </div>
+    <form action="{{ url_for('feedback', review_id=review_id) }}" method="post" class="form-group">
+        <div>
+            <p>Was the prediction correct?</p>
+            <div>
+                <input class="btn btn-primary" type="submit" name="feedback" value="Yes" />
+                <input class="btn btn-primary" type="submit" name="feedback" value="No" />
+                <input class="btn btn-secondary" type="submit" name="feedback" value="Skip" />
+            </div>
+        </div>
+    </form>
+
+    {% endblock %}
+</body>
